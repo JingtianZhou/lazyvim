@@ -7,3 +7,4 @@ vim.o.wildmode = "full"
 
 -- Disable copy to clipboard
 vim.o.clipboard = ""
+vim.o.laststatus = 2

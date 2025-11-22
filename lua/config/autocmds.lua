@@ -9,6 +9,7 @@
 -- Close nvim if the only window left is the file tree
 vim.api.nvim_create_autocmd("BufEnter", {
   nested = true,
+  desc = "1. Close one Nvim Tree, 2. Disable New Line Comment",
   callback = function()
     if #vim.api.nvim_list_wins() == 1 then
       local buf = vim.api.nvim_get_current_buf()
@@ -17,5 +18,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
         vim.cmd("quit")
       end
     end
+    vim.opt.formatoptions:remove({ "c", "r", "o" })
   end,
 })

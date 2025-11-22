@@ -9,13 +9,13 @@ return {
   keys = {
     -- 👇 in this section, choose your own keymappings!
     {
-      "<leader>-",
+      "<C-=>",
       mode = { "n", "v" },
       "<cmd>Yazi<cr>",
       desc = "Open yazi at the current file",
     },
     {
-      "<c-y>",
+      "<C-\\>",
       mode = { "n", "v" },
       "<cmd>Yazi toggle<cr>",
       desc = "Resume the last yazi session",
