@@ -14,12 +14,6 @@ return {
       "<cmd>Yazi<cr>",
       desc = "Open yazi at the current file",
     },
-    {
-      "<C-\\>",
-      mode = { "n", "v" },
-      "<cmd>Yazi toggle<cr>",
-      desc = "Resume the last yazi session",
-    },
   },
   ---@type YaziConfig | {}
   opts = {
