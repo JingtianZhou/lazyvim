@@ -3,7 +3,7 @@ return {
   opts = {
     terminal = {
       win = {
-        position = "float",
+        -- position = "float",
       },
       bo = {
         filetype = "snacks_terminal",

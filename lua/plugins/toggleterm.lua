@@ -1,10 +1,11 @@
 return {
   "akinsho/toggleterm.nvim",
+  enabled = false,
   config = function()
     require("toggleterm").setup({
       open_mapping = [[<C-\>]],
       start_in_insert = true,
-      persist_mode=true,
+      persist_mode = true,
       direction = "horizontal",
       close_on_exit = true,
       float_opts = {
