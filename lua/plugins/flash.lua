@@ -19,11 +19,12 @@ return {
       },
       {
         "S",
-        mode = { "n", "x", "o" },
-        function()
-          require("flash").treesitter()
-        end,
-        desc = "Flash Treesitter",
+        false,
+        -- mode = { "n", "x", "o" },
+        -- function()
+        --   require("flash").treesitter()
+        -- end,
+        -- desc = "Flash Treesitter",
       },
       {
         "r",

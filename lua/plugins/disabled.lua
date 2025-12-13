@@ -1,4 +1,4 @@
 return {
-  -- disable trouble
   { "nvim-neo-tree/neo-tree.nvim", enabled = false },
+  { "saghen/blink.cmp", enabled = false },
 }

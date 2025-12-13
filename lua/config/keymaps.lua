@@ -60,9 +60,6 @@ map("n", "<C-up>", ":resize -20<CR>")
 map("n", "<C-Left>", ":vertical resize -10<CR>")
 map("n", "<C-Right>", ":vertical resize +10<CR>")
 
--- Backspace
-map("i", "<C-BS>", "<C-w>")
-
 -- Floaterm
 map("n", "<C-/>", ":FloatermToggle<CR>")
 map("t", "<C-/>", "<C-\\><C-n>:FloatermToggle<CR>")
