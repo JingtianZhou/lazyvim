@@ -61,8 +61,8 @@ map("n", "<C-Left>", ":vertical resize -10<CR>")
 map("n", "<C-Right>", ":vertical resize +10<CR>")
 
 -- Floaterm
-map("n", "<C-/>", ":FloatermToggle<CR>")
-map("t", "<C-/>", "<C-\\><C-n>:FloatermToggle<CR>")
+map("n", "<C-_>", ":FloatermToggle<CR>")
+map("t", "<C-_>", "<C-\\><C-n>:FloatermToggle<CR>")
 
 --terminal
 map("n", "<c-\\>", function()
