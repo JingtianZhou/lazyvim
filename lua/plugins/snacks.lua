@@ -46,9 +46,9 @@ return {
         input = {
           keys = {
             -- Disables the Enter key (which normally confirms the selection)
-            ["]]"] = false,
+            -- ["]]"] = false,
             -- Disables the Ctrl+Enter key (which is used for `pick_win`)
-            ["[["] = false,
+            -- ["[["] = false,
           },
         },
       },

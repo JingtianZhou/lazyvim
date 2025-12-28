@@ -17,7 +17,8 @@ map("v", "<leader>y", '"+y', { desc = "Copy line/selection to system clipboard" 
 map("n", "<leader>wt", ":tab split<CR>", { desc = "Move buffer to new window" }) -- move buffer to new window
 -- Tree
 map("n", "<leader>e", ":NvimTreeToggle<CR>")
-map("n", "<leader>nf", ":NvimTreeFindFile<CR>", { desc = "Reveal file in tree" })
+map("n", "<leader>ef", ":NvimTreeFocus<CR>")
+map("n", "<leader>en", ":NvimTreeFindFile<CR>", { desc = "Reveal file in tree" })
 
 -- number increasing
 map("n", "_", "<C-x>")
@@ -63,6 +64,8 @@ map("n", "<C-Right>", ":vertical resize +10<CR>")
 -- Floaterm
 map("n", "<C-_>", ":FloatermToggle<CR>")
 map("t", "<C-_>", "<C-\\><C-n>:FloatermToggle<CR>")
+map("n", "<C-/>", ":FloatermToggle<CR>")
+map("t", "<C-/>", "<C-\\><C-n>:FloatermToggle<CR>")
 
 --terminal
 map("n", "<c-\\>", function()

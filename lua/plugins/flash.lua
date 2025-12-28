@@ -10,7 +10,7 @@ return {
         false,
       },
       {
-        "f",
+        "F",
         mode = { "n", "x", "o" },
         function()
           require("flash").jump()
