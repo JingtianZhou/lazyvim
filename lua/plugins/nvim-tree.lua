@@ -14,7 +14,7 @@ return {
 
     nvimtree.setup({
       view = {
-        width = 50,
+        width = 40,
         relativenumber = true,
       },
       actions = {
@@ -44,7 +44,12 @@ return {
         vim.keymap.set("n", "m", api.marks.toggle, opts("Toggle Mark"))
         vim.keymap.set("n", "v", api.node.open.vertical, opts("Open Vertical"))
         vim.keymap.set("n", "s", api.node.open.horizontal, opts("Open Horizontal"))
-        vim.keymap.set("n", "O", api.node.run.system, opts("Open with default opener"))
+        vim.keymap.set("n", "O", function()
+          api.node.open.edit(nil, { quit_on_open = true })
+        end, opts("Open and Quit"))
+        vim.keymap.set("n", "<CR>", function()
+          api.node.open.edit(nil, { focus = false })
+        end, opts("Open and Stay in tree"))
         vim.keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
         vim.keymap.set("n", ".", api.tree.toggle_hidden_filter, opts("toggle hidden files"))
         vim.keymap.set("n", "l", api.node.open.edit, opts("open"))
@@ -74,14 +79,24 @@ return {
             },
           })
         end, opts("fuzzy find in tree"))
+
+        -- Auto close
+        vim.api.nvim_create_autocmd("BufEnter", {
+          nested = true,
+          callback = function()
+            if vim.fn.winnr("$") == 1 and vim.bo.filetype == "NvimTree" then
+              vim.cmd("quit")
+            end
+          end,
+        })
       end,
 
-      -- pass to setup along with your other options
-      require("nvim-tree").setup({
-        ---
-        on_attach = my_on_attach,
-        ---
-      }),
+      -- -- pass to setup along with your other options
+      -- require("nvim-tree").setup({
+      --   ---
+      --   on_attach = my_on_attach,
+      --   ---
+      -- }),
     })
   end,
 }

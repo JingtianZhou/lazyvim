@@ -26,3 +26,9 @@ vim.api.nvim_create_autocmd("BufEnter", {
 vim.api.nvim_command("augroup terminal_setup | au!")
 vim.api.nvim_command("autocmd TermOpen * nnoremap <buffer><LeftRelease> <LeftRelease>i")
 vim.api.nvim_command("augroup end")
+
+vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+  pattern = { "*" },
+  command = "silent! wall",
+  nested = true,
+})

@@ -1,7 +1,7 @@
 --@module "neominimap.config.meta"
 return {
   "Isrothy/neominimap.nvim",
-  -- enabled = false,
+  enabled = false,
   version = "v3.x.x",
   lazy = false, -- NOTE: NO NEED to Lazy load
   -- Optional. You can also set your own keybindings

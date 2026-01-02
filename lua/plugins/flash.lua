@@ -4,11 +4,7 @@ return {
     event = "VeryLazy",
     opts = {},
     keys = {
-      {
-        "s",
-        mode = { "n", "x", "o" },
-        false,
-      },
+      { "s", mode = { "n", "x", "o" }, false },
       {
         "F",
         mode = { "n", "x", "o" },
@@ -21,10 +17,6 @@ return {
         "S",
         mode = { "n", "x", "o" },
         false,
-        -- function()
-        --   require("flash").treesitter()
-        -- end,
-        -- desc = "Flash Treesitter",
       },
       {
         "r",
