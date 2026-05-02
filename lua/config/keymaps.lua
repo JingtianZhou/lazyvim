@@ -12,8 +12,6 @@ map("n", "<leader>y", '"+y', { desc = "Copy line/selection to system clipboard" 
 map("v", "<leader>y", '"+y', { desc = "Copy line/selection to system clipboard" })
 
 -- window management
--- map("n", "<leader>ss", "<C-w>s") -- new split
--- map("n", "<leader>sv", "<C-w>v") -- new vertical split
 map("n", "<leader>wt", ":tab split<CR>", { desc = "Move buffer to new window" }) -- move buffer to new window
 -- Tree
 map("n", "<leader>e", ":NvimTreeToggle<CR>")
@@ -60,6 +58,13 @@ map("n", "<C-up>", ":resize -20<CR>")
 map("n", "<C-Left>", ":vertical resize -10<CR>")
 map("n", "<C-Right>", ":vertical resize +10<CR>")
 
+-- Window jump
+map("n", "<Left>", "<C-w>h")
+-- map("n", "<Down>", "<C-w>j")
+-- map("n", "<Up>", "<C-w>k")
+map("n", "<Right>", "<C-w>l")
+map("n", "<C-w>m", "<leader>wm")
+
 -- Floaterm
 map("n", "<C-_>", ":FloatermToggle<CR>")
 map("t", "<C-_>", "<C-\\><C-n>:FloatermToggle<CR>")
@@ -70,10 +75,34 @@ map("t", "<C-/>", "<C-\\><C-n>:FloatermToggle<CR>")
 map("n", "<C-9>", "[m")
 map("n", "<C-0>", "]m")
 
---terminal
+-- Terminal
 -- map("n", "<c-\\>", function()
 --   Snacks.terminal(nil, { cwd = LazyVim.root() })
 -- end, { desc = "which_key_ignore" })
 -- map("t", "<c-\\>", "<cmd>close<cr>", { desc = "which_key_ignore" })
 
 map("i", "<C-D>", "<Del>", { noremap = true, silent = true })
+
+-- Debugger
+local dap = require("dap")
+vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "DAP Continue" })
+vim.keymap.set("n", "<leader>dg", dap.step_over, { desc = "DAP Step Over" })
+vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "DAP Step Into" })
+vim.keymap.set("n", "<leader>do", dap.step_out, { desc = "DAP Step Out" })
+vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
+
+vim.keymap.set("n", "<leader>dB", function()
+  dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+end, { desc = "Conditional Breakpoint" })
+
+vim.keymap.set("n", "<leader>dq", function()
+  local dapui = require("dapui")
+
+  dap.terminate()
+  dap.disconnect({ terminateDebuggee = true })
+
+  dapui.close()
+
+  -- optional cleanup of stale state
+  require("dap.repl").close()
+end, { desc = "Stop Debugging (full cleanup)" })
